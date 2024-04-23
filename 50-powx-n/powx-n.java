@@ -14,7 +14,7 @@ class Solution {
         double ans = 1;
         while (n > 0) {
             if (n % 2 == 1) {
-                ans *= x;
+                ans *= x;n=n-1;
             }
             x *= x;
             n /= 2;
