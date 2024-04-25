@@ -1,7 +1,9 @@
 class Solution {
     public int countPrimes(int n) {
-        boolean arr[] =new boolean[n+1];int count=0;
-        for(int i=0;i< arr.length;i++){
+        boolean arr[] =new boolean[n+1];
+        // n+1 as it  will create an extra space for 0 index by shifting one ahea we will get i=2 for 2 value if not had n+1 we would get 3 
+        int count=0;
+        for(int i=2;i< n;i++){
             arr[i]=true;
         }if(n<3){
             return 0;
@@ -12,7 +14,7 @@ class Solution {
                     arr[j]=false;
                 }
             }
-        }for(int i=2;i<arr.length-1;i++){
+        }for(int i=2;i<n;i++){
             if(arr[i]==true){
                 count++;
             }
