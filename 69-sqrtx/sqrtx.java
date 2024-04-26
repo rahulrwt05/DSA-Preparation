@@ -4,9 +4,7 @@ class Solution {
         int end = x;
         int ans = 0;
         
-        if(x == 0 && x == 1){
-            return 1;
-        }
+       
         while (start <= end) {
             int mid = start+ (end - start) / 2;
 
