@@ -4,11 +4,11 @@ class Solution {
         int sum=0;
         for(int i=0;i<nums.length;i++){
             sum=sum+nums[i];
-            if(sum>maxsum){
-                maxsum=sum;
-            }
+          if(sum>maxsum){
+                maxsum=sum;}
             if(sum<0){
-                sum=0;
+                sum=0;  
+            
             }
         }
    return maxsum; }
