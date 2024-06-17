@@ -17,7 +17,7 @@ class Solution {
         ListNode even=odd.next;
         ListNode evenHead=even;
         // we traverse until even becomes null for the odd indexex; 1>3>5
-        while(even!=null && even.next!=null){ 
+        while(odd.next!=null && even.next!=null){ 
             odd.next=even.next; // indicating even indexex element (meanns we are connecting odd with even next which is also odd);
             odd=odd.next;
             even.next=odd.next;
