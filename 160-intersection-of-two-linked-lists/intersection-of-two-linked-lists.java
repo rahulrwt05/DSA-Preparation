@@ -11,47 +11,33 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) {
+         if(headA==null || headB==null){
             return null;
+         }
+         ListNode count1=headA;
+         ListNode  count2=headB;
+         int n1=0;
+         while(count1!=null){
+            n1++;
+            count1=count1.next;
+         }int n2=0;
+         while(count2!=null){
+            n2++;
+            count2=count2.next;
+         }
+if(n1>n2){
+    return intNode(headA,headB,n1-n2);
+}
+    return intNode(headB,headA,n2-n1);
+
+    } static ListNode intNode(ListNode head1,ListNode head2, int d){
+        while(d!=0){d--;
+head1=head1.next;
         }
-
-        // Calculate the lengths of both linked lists
-        int lengthA = getLength(headA);
-        int lengthB = getLength(headB);
-
-        // Align both pointers to the same starting point from the end
-        if (lengthA > lengthB) {
-            headA = moveForward(headA, lengthA - lengthB);
-        } else {
-            headB = moveForward(headB, lengthB - lengthA);
+        while(head1!=head2){
+            head1=head1.next;
+            head2=head2.next;
         }
-
-        // Move both pointers until they intersect
-        while (headA != null && headB != null) {
-            if (headA == headB) {
-                return headA;
-            }
-            headA = headA.next;
-            headB = headB.next;
-        }
-
-        return null; // No intersection found
-    }
-
-    private int getLength(ListNode node) {
-        int length = 0;
-        while (node != null) {
-            length++;
-            node = node.next;
-        }
-        return length;
-    }
-
-    private ListNode moveForward(ListNode node, int steps) {
-        while (steps > 0 && node != null) {
-            node = node.next;
-            steps--;
-        }
-        return node;
+        return head1;
     }
 }
