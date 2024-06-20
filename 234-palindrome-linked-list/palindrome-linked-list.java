@@ -23,7 +23,7 @@ class Solution {
               break;
             }fhead=fhead.next;
             rhead=rhead.next;
-         } reverse(reversehead);
+         } 
          return fhead==null || rhead==null;
     }
     static ListNode mid(ListNode head){
