@@ -1,17 +1,14 @@
 class Solution {
     public boolean isHappy(int n) {
         int slow = n;
-        int fast = n;
+        int fast = findSquare(n);
 
-         do{
+        while (slow != fast){
             slow = findSquare(slow);
             fast = findSquare(findSquare(fast));
-        }while (slow != fast);
-
-        if (slow == 1) {
-            return true;
         }
-        return false;
+
+        return slow==1;
     }
 
     private int findSquare(int number) {
