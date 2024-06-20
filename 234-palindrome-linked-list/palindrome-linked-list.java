@@ -10,38 +10,50 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null)
-        {
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        // Find the midpoint of the linked list
+        ListNode mid = findMid(head);
+
+        // Reverse the second half of the linked list
+        ListNode rhead = reverse(mid);
+
+        // Check if the list is a palindrome
+        ListNode fhead = head;
+        while (rhead != null) {
+            if (fhead.val != rhead.val) {
+                return false;
+            }
+            fhead = fhead.next;
+            rhead = rhead.next;
+        }
+
         return true;
     }
-        ListNode fhead =head;
-        ListNode mid =mid(head);
-        ListNode rhead =reverse(mid);
-       
-         while(rhead!=null){
-            if(fhead.val!=rhead.val){
-              break;
-            }fhead=fhead.next;
-            rhead=rhead.next;
-         } 
-         return fhead==null || rhead==null;
+
+    // Function to find the middle of the linked list
+    private ListNode findMid(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
-    static ListNode mid(ListNode head){
-        ListNode slow =head;
-        ListNode fast =head;
-    while(fast!=null && fast.next!=null){
-        fast=fast.next.next;
-        slow=slow.next;
+
+    // Function to reverse the linked list
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
-    return slow;
-    }
-    static ListNode reverse(ListNode head){
-        ListNode prev=null;
-        ListNode current=head;
-    
-     while(current!=null){   ListNode next=current.next;
-        current.next=prev;
-        prev=current;
-        current=next;
-    } return prev;}
 }
