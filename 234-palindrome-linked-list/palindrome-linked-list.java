@@ -17,7 +17,7 @@ class Solution {
         ListNode fhead =head;
         ListNode mid =mid(head);
         ListNode rhead =reverse(mid);
-        ListNode reversehead=rhead;
+       
          while(rhead!=null){
             if(fhead.val!=rhead.val){
               break;
