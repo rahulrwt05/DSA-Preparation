@@ -27,14 +27,6 @@ class Solution {
             forw.next=prev.next;
              prev.next=forw;
             size--;
-             
-           
-           
-            
-            
-          
-        }
-
-
-       return dummy.next; }
+           }
+           return dummy.next; }
 }
