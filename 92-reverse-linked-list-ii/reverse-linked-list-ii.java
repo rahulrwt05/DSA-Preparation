@@ -20,13 +20,13 @@ class Solution {
             prev=prev.next;
         }
         ListNode curr=prev.next;
-        int size=right-left;
-        for(int i=0;i<size;i++){
+        int size=right-left+1;
+        while(size>1){
             ListNode forw=curr.next;
             curr.next=forw.next;
             forw.next=prev.next;
              prev.next=forw;
-            
+            size--;
              
            
            
