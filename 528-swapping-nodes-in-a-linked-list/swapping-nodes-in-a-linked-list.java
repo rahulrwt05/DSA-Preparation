@@ -44,10 +44,10 @@ class Solution {
 
 
         // Swapping Values of both indexes
-       
-        curr1.val = curr1.val + curr2.val;
-        curr2.val = curr1.val - curr2.val;
-        curr1.val = curr1.val - curr2.val;
+       int t=curr1.val;
+       curr1.val=curr2.val;
+       curr2.val=t;
+        
        
         return head;
     }
