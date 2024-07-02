@@ -14,30 +14,22 @@ class Solution {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         
-        ListNode preSlow = dummy;  // Pointer to track the node before the current node
-        ListNode slow = head;      // Pointer to track the current node
-        ListNode fast = (head != null) ? head.next : null; // Pointer to track the next node
+        ListNode prev = dummy;  // Pointer to track the node before the current node
+        ListNode curr = head;      // Pointer to track the current node
+        // Pointer to track the next node
 
-        while (slow != null) {
-            boolean isDuplicate = false;
-            // Check for duplicates
-            while (fast != null && slow.val == fast.val) {
-                isDuplicate = true;
-                fast = fast.next;
+        while (curr!= null) {
+         if(curr.next != null && curr.val == curr.next.val) {
+                while(curr.next!=null && curr.val==curr.next.val){
+                    curr=curr.next;;
+                }
+                prev.next=curr.next;
+            
+            }else{
+                prev=prev.next;
             }
-            // If duplicates were found, skip all of them
-            if (isDuplicate) {
-                preSlow.next = fast;
-            } else {
-                // Otherwise, move the preSlow pointer
-                preSlow = slow;
-            }
-            // Move the slow pointer to the next node to continue the process
-            slow = fast;
-            if (fast != null) {
-                fast = fast.next;
-            }
-        }
-        return dummy.next;}  
-    
+            curr=curr.next;}
+            
+        return dummy.next;  
+    }
 }
